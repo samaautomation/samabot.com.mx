@@ -35,7 +35,7 @@ export default function TechnicalOverview() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
+    <section id="tech" className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
       {/* Technical Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_25%,rgba(59,130,246,0.05)_75%,transparent_75%)] bg-[size:60px_60px]"></div>
@@ -69,23 +69,34 @@ export default function TechnicalOverview() {
           </SlideUpAnimation>
         </div>
 
-        {/* Technical Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* Technical Features Grid - MEJORADO */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {technicalFeatures.map((feature, index) => (
             <SlideUpAnimation key={index} delay={0.8 + index * 0.1}>
               <HoverGlowAnimation>
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 group">
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <div className="inline-flex items-center px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full">
-                    <span className="text-blue-400 text-sm font-medium">
-                      {feature.specs}
-                    </span>
+                <div className="group relative bg-gradient-to-br from-gray-800/40 via-gray-800/60 to-gray-900/80 border border-gray-700/50 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 transform hover:-translate-y-1">
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Icon with background */}
+                  <div className="relative z-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl border border-gray-600 mb-6 group-hover:border-blue-500/50 transition-all duration-300">
+                      <span className="text-3xl">{feature.icon}</span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 mb-6 leading-relaxed text-sm">
+                      {feature.description}
+                    </p>
+                    
+                    <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-500/30 rounded-full group-hover:border-blue-400/50 transition-all duration-300">
+                      <span className="text-blue-300 text-sm font-medium group-hover:text-blue-200">
+                        {feature.specs}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </HoverGlowAnimation>

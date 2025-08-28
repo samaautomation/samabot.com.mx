@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import FuturisticHero from '@/components/FuturisticHero';
 import TechnicalOverview from '@/components/TechnicalOverview';
 import UseCasesGrid from '@/components/UseCasesGrid';
@@ -8,6 +9,9 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
+      {/* Header */}
+      <Header />
+      
       {/* Futuristic Hero Section */}
       <FuturisticHero />
       
