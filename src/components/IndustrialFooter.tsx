@@ -4,6 +4,7 @@ import {
   FadeInAnimation, 
   SlideUpAnimation 
 } from '@/components/blockies';
+import Logo from '@/components/Logo';
 
 export default function IndustrialFooter() {
   const currentYear = new Date().getFullYear();
@@ -21,9 +22,7 @@ export default function IndustrialFooter() {
           <div className="lg:col-span-2">
             <FadeInAnimation delay={0.2}>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-blue-400 rounded-lg flex items-center justify-center">
-                  <span className="text-black text-xl font-bold">S</span>
-                </div>
+                <Logo type="sama" size="md" />
                 <div>
                   <div className="text-2xl font-bold text-white">SAMA</div>
                   <div className="text-sm text-gray-400">AUTOMATIZACIÓN</div>
@@ -153,7 +152,7 @@ export default function IndustrialFooter() {
         {/* Trust Badges */}
         <SlideUpAnimation delay={1.6}>
           <div className="mt-8 pt-8 border-t border-gray-800">
-            <div className="text-center">
+            <div className="text-center space-y-6">
               <div className="inline-flex items-center space-x-6 text-gray-400 text-sm">
                 <div className="flex items-center space-x-2">
                   <span className="text-yellow-400">🔒</span>
@@ -170,6 +169,21 @@ export default function IndustrialFooter() {
                 <div className="flex items-center space-x-2">
                   <span className="text-purple-400">🤖</span>
                   <span>IA Local</span>
+                </div>
+              </div>
+              
+              {/* Hecho en Chihuahua con amor */}
+              <div className="pt-6 border-t border-gray-800">
+                <div className="flex items-center justify-center space-x-3">
+                  <Logo type="sama" size="sm" />
+                  <div className="text-center">
+                    <div className="text-gray-300 text-sm font-medium">
+                      Hecho en <span className="text-blue-400 font-semibold">Chihuahua</span> con amor ❤️
+                    </div>
+                    <div className="text-gray-500 text-xs">
+                      por <span className="text-blue-400 font-semibold">SAMA Automation</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
