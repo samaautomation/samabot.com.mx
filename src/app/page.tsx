@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
-import FuturisticHero from '@/components/FuturisticHero';
+import RecoveryHero from '@/components/RecoveryHero';
+import TimeLossSection from '@/components/TimeLossSection';
 import TechnicalOverview from '@/components/TechnicalOverview';
 import UseCasesGrid from '@/components/UseCasesGrid';
 import IndustrialContact from '@/components/IndustrialContact';
@@ -12,8 +13,11 @@ export default function Home() {
       {/* Header */}
       <Header />
       
-      {/* Futuristic Hero Section */}
-      <FuturisticHero />
+      {/* Recovery Hero Section */}
+      <RecoveryHero />
+      
+      {/* Time Loss Section */}
+      <TimeLossSection />
       
       {/* Technical Overview Section */}
       <TechnicalOverview />
