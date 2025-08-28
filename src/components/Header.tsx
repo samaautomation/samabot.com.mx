@@ -1,6 +1,7 @@
 'use client';
 
 import { FadeInAnimation, SlideUpAnimation } from '@/components/blockies';
+import Logo from '@/components/Logo';
 
 export default function Header() {
   return (
@@ -10,9 +11,7 @@ export default function Header() {
           {/* Logo SAMA Automation */}
           <FadeInAnimation delay={0.2}>
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center border border-blue-500/30">
-                <span className="text-white text-lg font-bold">S</span>
-              </div>
+              <Logo type="sama" size="sm" />
               <div className="hidden sm:block">
                 <div className="text-white font-bold text-lg">SAMA Automation</div>
                 <div className="text-blue-400 text-xs">Industrial AI Solutions</div>

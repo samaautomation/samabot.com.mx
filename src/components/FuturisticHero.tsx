@@ -5,6 +5,7 @@ import {
   SlideUpAnimation, 
   HoverGlowAnimation 
 } from '@/components/blockies';
+import SamabotLogo from '@/components/SamabotLogo';
 
 export default function FuturisticHero() {
   return (
@@ -91,77 +92,44 @@ export default function FuturisticHero() {
             </SlideUpAnimation>
           </div>
 
-          {/* Right Column - SAMABOT Visualization */}
-          <div className="relative">
-            <FadeInAnimation delay={1.2}>
-              <div className="relative">
-                {/* Main Cabinet Visualization */}
-                <div className="w-full h-96 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 relative overflow-hidden">
-                  {/* Futuristic Grid Pattern */}
-                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.05)_25%,rgba(59,130,246,0.05)_75%,transparent_75%)] bg-[size:30px_30px]"></div>
-                  
-                  {/* AI Interface Display */}
-                  <div className="absolute top-8 left-8 right-8 h-32 bg-black rounded-lg border border-blue-500/30 p-4">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-900/20 to-black rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-blue-400 text-lg font-mono mb-2">SAMA AI</div>
-                        <div className="text-gray-400 text-xs font-mono">System Nominal</div>
-                        <div className="flex justify-center mt-2">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Technical Components */}
-                  <div className="absolute bottom-8 left-8 w-20 h-16 bg-gray-700 rounded-lg border border-gray-600 flex items-center justify-center">
-                    <div className="text-blue-400 text-xs font-mono text-center">PLC</div>
-                  </div>
-                  
-                  <div className="absolute bottom-8 left-32 w-20 h-16 bg-gray-700 rounded-lg border border-gray-600 flex items-center justify-center">
-                    <div className="text-blue-400 text-xs font-mono text-center">GPU</div>
-                  </div>
-                  
-                  <div className="absolute bottom-8 right-8 w-20 h-16 bg-gray-700 rounded-lg border border-gray-600 flex items-center justify-center">
-                    <div className="text-blue-400 text-xs font-mono text-center">HMI</div>
-                  </div>
-
-                  {/* Data Flow Lines */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                    <path
-                      d="M 120 280 Q 200 250 280 280"
-                      stroke="rgba(59,130,246,0.3)"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeDasharray="5,5"
-                    />
-                    <path
-                      d="M 280 280 Q 360 250 440 280"
-                      stroke="rgba(59,130,246,0.3)"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeDasharray="5,5"
-                    />
-                  </svg>
-                </div>
-
-                {/* Floating Tech Specs */}
-                <div className="absolute -top-4 -right-4 bg-black/90 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-400">24/7</div>
-                    <div className="text-xs text-gray-400">Monitoreo IA</div>
-                  </div>
-                </div>
-
-                <div className="absolute -bottom-4 -left-4 bg-black/90 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-300">99.9%</div>
-                    <div className="text-xs text-gray-400">Uptime</div>
-                  </div>
-                </div>
-              </div>
-            </FadeInAnimation>
-          </div>
+                           {/* Right Column - SAMABOT Logo & Branding */}
+                 <div className="relative flex flex-col items-center justify-center">
+                   <FadeInAnimation delay={1.2}>
+                     <div className="text-center space-y-8">
+                       {/* SAMABOT Logo */}
+                       <div className="relative">
+                         <SamabotLogo size="xl" className="mb-6" />
+                         
+                         {/* Subtle Glow Effect */}
+                         <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl -z-10"></div>
+                       </div>
+                       
+                       {/* Brand Tagline */}
+                       <div className="space-y-4">
+                         <h3 className="text-2xl font-bold text-white">
+                           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
+                             Control Industrial
+                           </span>
+                           <br />
+                           <span className="text-gray-200">con IA Integrada</span>
+                         </h3>
+                         
+                         {/* Key Features Badges */}
+                         <div className="flex flex-wrap justify-center gap-3">
+                           <div className="px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
+                             <span className="text-blue-300 text-sm font-medium">GPU Edge</span>
+                           </div>
+                           <div className="px-4 py-2 bg-gray-700/30 border border-gray-600/50 rounded-full">
+                             <span className="text-gray-300 text-sm font-medium">PLC Siemens</span>
+                           </div>
+                           <div className="px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
+                             <span className="text-blue-300 text-sm font-medium">IA Local</span>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </FadeInAnimation>
+                 </div>
         </div>
       </div>
     </section>
