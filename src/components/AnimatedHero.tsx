@@ -171,3 +171,4 @@ export function AnimatedHero({ className }: AnimatedHeroProps) {
   );
 }
 
+
