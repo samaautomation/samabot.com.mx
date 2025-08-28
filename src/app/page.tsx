@@ -1,7 +1,6 @@
-import IndustrialHero from '@/components/IndustrialHero';
-import IndustrialProblems from '@/components/IndustrialProblems';
-import SamabotSolution from '@/components/SamabotSolution';
-import IndustrialUseCases from '@/components/IndustrialUseCases';
+import FuturisticHero from '@/components/FuturisticHero';
+import TechnicalOverview from '@/components/TechnicalOverview';
+import UseCasesGrid from '@/components/UseCasesGrid';
 import IndustrialContact from '@/components/IndustrialContact';
 import IndustrialFooter from '@/components/IndustrialFooter';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -9,17 +8,14 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
-      {/* Hero Section */}
-      <IndustrialHero />
+      {/* Futuristic Hero Section */}
+      <FuturisticHero />
       
-      {/* Problems Section */}
-      <IndustrialProblems />
+      {/* Technical Overview Section */}
+      <TechnicalOverview />
       
-      {/* Solution Section */}
-      <SamabotSolution />
-      
-      {/* Use Cases Section */}
-      <IndustrialUseCases />
+      {/* Use Cases Grid Section */}
+      <UseCasesGrid />
       
       {/* Contact Section */}
       <IndustrialContact />
