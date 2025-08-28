@@ -128,7 +128,7 @@ export default function UseCasesGrid() {
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                    <span>HMI Wecon 10" táctil</span>
+                    <span>HMI Wecon 10&quot; táctil</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
