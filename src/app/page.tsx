@@ -4,6 +4,7 @@ import SamabotSolution from '@/components/SamabotSolution';
 import IndustrialUseCases from '@/components/IndustrialUseCases';
 import IndustrialContact from '@/components/IndustrialContact';
 import IndustrialFooter from '@/components/IndustrialFooter';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
       
       {/* Footer */}
       <IndustrialFooter />
+      
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </main>
   );
 }

@@ -89,10 +89,10 @@ export default function SamabotSolution() {
           </FadeInAnimation>
 
           <SlideUpAnimation delay={0.6}>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              SAMABOT es un sistema <span className="text-yellow-400 font-semibold">"todo-en-uno"</span> que combina 
-              control industrial, visualización e inteligencia artificial en un solo gabinete.
-            </p>
+                          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                SAMABOT es un sistema <span className="text-yellow-400 font-semibold">&quot;todo-en-uno&quot;</span> que combina 
+                control industrial, visualización e inteligencia artificial en un solo gabinete.
+              </p>
           </SlideUpAnimation>
         </div>
 
