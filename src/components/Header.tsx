@@ -40,7 +40,7 @@ export default function Header() {
           {/* CTA Button */}
           <SlideUpAnimation delay={0.6}>
             <a
-              href="#demo"
+              href="/demo"
               className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-sm font-medium hover:from-blue-500 hover:to-blue-600 transition-all duration-300 border border-blue-500/30"
             >
               🎬 Demo

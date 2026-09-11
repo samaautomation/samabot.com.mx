@@ -73,7 +73,7 @@ export default function RecoveryHero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <HoverGlowAnimation>
                   <a
-                    href="#demo"
+                    href="/demo"
                     className="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 text-white rounded-lg text-lg font-bold hover:from-blue-500 hover:via-purple-500 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 transform hover:scale-105"
                   >
                     🚀 Ver Demo en Vivo
