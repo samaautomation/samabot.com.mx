@@ -184,6 +184,10 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
         <div class="v num"><span id="ace">—</span> <small>psi</small></div></div>
       <div class="celda"><div class="c">Tiempo de operación</div>
         <div class="v num"><span id="horas">—</span> <small>h</small></div></div>
+      <div class="celda ancha"><div class="c">Carga térmica</div>
+        <div class="v num"><span id="carga">—</span> <small>%</small></div>
+        <div class="barra"><i id="cargaBar"></i></div>
+        <div class="s" id="cargaSrc">—</div></div>
       <div class="celda ancha"><div class="c">Condensador · flujo de aire (anemómetro)</div>
         <div class="v num"><span id="aire">—</span> <small>m/s</small></div>
         <div class="s">Más aire condensa mejor y baja la presión de descarga.</div></div>
@@ -448,9 +452,12 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
     var av = $("aviso");
     if (p.fuente === "SIM") {
       av.className = "aviso sim";
-      av.innerHTML = p.modoSim === "stand"
-        ? "<b>SIMULACIÓN ACELERADA</b> · modo stand: los eventos pasan en minutos. El programa del demo aún no está cargado en el PLC"
-        : "<b>SIMULACIÓN</b> · planta en tiempo real. El programa del demo aún no está cargado en el PLC";
+      av.innerHTML = (p.modoSim === "stand"
+        ? "<b>SIMULACIÓN ACELERADA</b> · modo stand: los eventos pasan en minutos."
+        : "<b>SIMULACIÓN</b> · planta en tiempo real.")
+        + (p.cargaFuente === "pot"
+          ? " La <b>carga térmica es real</b>: viene del potenciómetro conectado al PLC."
+          : " El programa del demo aún no está cargado en el PLC");
     }
     else { av.className = "aviso real"; av.innerHTML = "<b>EN VIVO</b> · datos leídos del PLC del stand"; }
 
@@ -463,6 +470,11 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
     $("ace").textContent = f0(p.Aceite_Dif);
     $("horas").textContent = f1(p.Horas_Oper);
     $("aire").textContent = f1(p.Aire_Cond);
+    $("carga").textContent = f0(p.Carga);
+    $("cargaBar").style.width = Math.max(0, Math.min(100, p.Carga)) + "%";
+    $("cargaSrc").textContent = p.cargaFuente === "pot"
+      ? "Potenciómetro real conectado al PLC: gíralo y la succión responde"
+      : "Del modelo de la planta (clima, turnos, cosecha)";
 
     $("spArr").textContent = f1(p.SP_Arranque) + " psiG"; $("spCtl").textContent = f1(p.SP_Succion) + " psiG";
     $("spParo").textContent = f1(p.SP_Paro) + " psiG"; $("retArr").textContent = f0(p.Ret_Arranque) + " s";
