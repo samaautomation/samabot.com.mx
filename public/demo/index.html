@@ -352,8 +352,10 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
     if (t === "plc") {
       var d = cacheMq.plc;
       if (!d) return Promise.resolve({ ok: false, edad: null });
+      // en la web las señales del PLC se publican al cambiar, con aviso de vida cada 8 s:
+      // 30 s de tolerancia. La edad se muestra siempre, asi que no se presenta nada como fresco.
       var edad = Math.max(0, Math.round((Date.now() - d.ts) / 1000));
-      return Promise.resolve(Object.assign({}, d, { ok: edad < LIMITE_SENAL / 1000, edad: edad }));
+      return Promise.resolve(Object.assign({}, d, { ok: edad < 30, edad: edad }));
     }
     return Promise.resolve(cacheMq[t] !== undefined ? cacheMq[t] : (t === "historia" ? [] : {}));
   }
