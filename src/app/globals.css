@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Paleta SAMA — derivada del logo: el ámbar del rayo, el gris del engrane,
+   el azul marino del wordmark. El ámbar es el ÚNICO acento: se usa una vez
+   por sección, nunca más.
+   La página se compromete con un solo mundo visual (panel de control), así
+   que no hay tema claro: todos los colores se pintan explícitos.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-ink: #0b0e12;
+  --color-panel: #141920;
+  --color-panel-2: #1a2029;
+  --color-line: #232b35;
+  --color-line-soft: #1b222b;
+
+  --color-fg: #e6eaef;
+  --color-muted: #8b96a4;
+  --color-dim: #66717f;
+
+  --color-amber: #ffc02e;
+  --color-amber-hi: #ffd062;
+  --color-navy: #2a2fa6;
+
+  --color-ok: #46a76b;
+  --color-crit: #d4453c;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* El header es sticky: sin esto, al saltar a una sección el título queda
+   escondido debajo de la barra. */
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
 }

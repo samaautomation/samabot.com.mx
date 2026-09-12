@@ -1,30 +1,54 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "SAMABOT - Gabinete de Control con IA Integrada | SAMA Automation",
-  description: "SAMABOT combina PLC Siemens, HMI y IA local para reducir paros, estandarizar mantenimiento y entrenar a tu equipo. Solución industrial 4.0.",
-  keywords: "SAMABOT, PLC Siemens, HMI, IA industrial, automatización, mantenimiento predictivo, industria 4.0, SAMA Automation",
-  authors: [{ name: "SAMA Automation" }],
-  creator: "SAMA Automation",
-  publisher: "SAMA Automation",
+  metadataBase: new URL("https://samabot.com.mx"),
+  title: "SAMABOT — control y monitoreo sobre las máquinas que ya tienes",
+  description:
+    "SAMA integra control, monitoreo industrial y un asistente de IA sobre el PLC, los sensores y las válvulas que tu planta ya tiene. Se compra una vez; el registro y las alarmas siguen corriendo sin internet.",
+  keywords: [
+    "retrofit industrial",
+    "monitoreo de amoniaco",
+    "detección NH3",
+    "integración de PLC",
+    "automatización Cuauhtémoc",
+    "refrigeración industrial Chihuahua",
+    "SAMABOT",
+    "SAMA Automatización",
+  ],
+  authors: [{ name: "SAMA Automatización S.A.S. de C.V." }],
+  creator: "SAMA Automatización",
+  publisher: "SAMA Automatización",
   robots: "index, follow",
   openGraph: {
-    title: "SAMABOT - Gabinete de Control con IA Integrada",
-    description: "Pon a un ingeniero experto dentro de tu máquina",
+    title: "SAMABOT — sobre las máquinas que ya tienes",
+    description:
+      "Control, monitoreo y asistente de IA sobre tu equipo instalado. Cuauhtémoc, Chihuahua.",
     type: "website",
     locale: "es_MX",
+    siteName: "SAMABOT",
   },
 };
 
@@ -36,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} antialiased`}
       >
         {children}
       </body>
