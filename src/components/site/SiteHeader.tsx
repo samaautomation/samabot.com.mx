@@ -60,7 +60,16 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <div className="ml-auto md:ml-0">
+        <div className="ml-auto flex items-center gap-4 md:ml-0">
+          {/* /demo es una pagina estatica detras de un rewrite: enlace normal, no next/link */}
+          <a
+            href="/demo"
+            className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-fg"
+          >
+            <span aria-hidden className="size-[7px] flex-none rounded-full bg-ok" />
+            <span className="sm:hidden">Demo</span>
+            <span className="hidden sm:inline">Demo en vivo</span>
+          </a>
           <Button href="#contacto">Agendar visita</Button>
         </div>
       </Wrap>

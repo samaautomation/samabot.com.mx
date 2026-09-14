@@ -17,6 +17,12 @@ export default function SiteFooter() {
               {item.label}
             </a>
           ))}
+          <a
+            href="/demo"
+            className="border-b border-transparent transition-colors hover:border-amber hover:text-fg"
+          >
+            Demo en vivo
+          </a>
         </nav>
 
         <div className="ml-auto text-right font-mono text-[11.5px] text-dim">

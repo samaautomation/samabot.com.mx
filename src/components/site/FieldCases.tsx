@@ -24,6 +24,9 @@ const CASES = [
   },
   {
     where: "Frigorífico de manzana · Cuauhtémoc",
+    // PENDIENTE (2026-09-14): sin confirmar cuantas salas ni si hubo instalacion nueva;
+    // en el Brain, Masara ya tenia deteccion. Confirmar con Gera (Brain P-237).
+    pendiente: true,
     title: "Detección de amoniaco en 8 salas",
     body: "Sensores instalados, calibrados y con reporte de servicio entregado. Aquí sí hubo instrumento nuevo: no existía detección.",
     facts: [
@@ -42,13 +45,16 @@ const CASES = [
   },
 ];
 
+const VISIBLES = CASES.filter((c) => !c.pendiente);
+const EN_LETRA = ["Cero", "Un", "Dos", "Tres", "Cuatro", "Cinco", "Seis"];
+
 export default function FieldCases() {
   return (
     <section id="planta" className="border-t border-line py-16">
       <Wrap>
         <SectionLabel num="04">En planta</SectionLabel>
         <SectionHeading>
-          Cuatro trabajos sobre equipo que el cliente ya tenía.
+          {EN_LETRA[VISIBLES.length]} trabajos sobre equipo que el cliente ya tenía.
         </SectionHeading>
         <SectionLede>
           Los nombres se publican solo con permiso del cliente. Los datos técnicos son
@@ -56,8 +62,13 @@ export default function FieldCases() {
         </SectionLede>
 
         <div className="mt-[38px] grid gap-px overflow-hidden rounded-[3px] border border-line bg-line sm:grid-cols-2">
-          {CASES.map((c) => (
-            <article key={c.title} className="bg-ink px-[22px] py-[26px]">
+          {VISIBLES.map((c, i) => (
+            <article
+              key={c.title}
+              className={`bg-ink px-[22px] py-[26px] ${
+                VISIBLES.length % 2 === 1 && i === VISIBLES.length - 1 ? "sm:col-span-2" : ""
+              }`}
+            >
               <div className="border-b border-line-soft pb-3.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-dim">
                 {c.where}
               </div>

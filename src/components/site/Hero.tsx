@@ -38,6 +38,9 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="#contacto">Agendar visita de diagnóstico</Button>
+            <Button href="/demo" variant="ghost">
+              Ver el demo en vivo
+            </Button>
             <Button href="#modelo" variant="ghost">
               Qué se paga y qué no
             </Button>
