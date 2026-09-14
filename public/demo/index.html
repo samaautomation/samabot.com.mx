@@ -146,9 +146,13 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
 .velo{position:fixed;inset:0;background:rgba(30,36,45,.55);display:none;align-items:center;justify-content:center;z-index:10;padding:16px}
 .velo.on{display:flex}
 /* en la web el aviso no tapa la pagina: el historial se puede ver aunque el stand este apagado */
-.velo.suave{inset:auto 0 auto 0;top:62px;background:none;padding:0 12px;pointer-events:none;z-index:4}
-.velo.suave div{max-width:560px;width:100%;text-align:left;padding:9px 12px;background:#ffe3e3;border:1px solid #ffa8a8;color:#7d1a1a;pointer-events:auto}
+/* web: la franja va en el flujo, debajo del aviso amarillo (antes flotaba y tapaba titulos) */
+.velo.suave{position:static;background:none;padding:0;margin:8px 12px 0;z-index:auto}
+.velo.suave div{max-width:none;width:100%;text-align:left;padding:9px 12px;background:#ffe3e3;border:1px solid #ffa8a8;color:#7d1a1a;border-radius:6px}
 .velo.suave p{margin:4px 0 0;color:#7d1a1a}
+/* sin senal: el estado deja de decir 'Operando' y los valores congelados se atenuan */
+.estado.sinsenal{color:var(--tenue)}
+body.sinsenal #v-comp .v,body.sinsenal #v-salas .v,body.sinsenal #v-nh3 .v{opacity:.55}
 .velo div{background:#fff;border-radius:8px;padding:18px;max-width:320px;text-align:center}
 </style>
 </head>
@@ -593,13 +597,16 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
     if (!tUlt && ahora - tCarga < 4000) return;          // gracia al abrir la pagina
     if (!tUlt || ahora - tUlt > LIMITE_SENAL) {
       p.className = "punto";
+      document.body.classList.add("sinsenal");
+      var est = $("estado");
+      if (est.className.indexOf("sinsenal") < 0) { est.className = "v estado sinsenal"; $("estadoTxt").textContent = "Sin señal"; }
       if (MQ) velo(true, "Sin señal del stand", ultimo && ultimo.ts
         ? "El último dato llegó a las " + hhmmss(ultimo.ts) + ". Puede que el stand esté apagado o sin internet; la página se actualiza sola al volver."
         : "Esperando datos del stand…");
       else velo(true, "Sin comunicación", "Revisa que sigas conectado a la red SAMA-DEMO. Reconectando…");
     }
-    else if (ahora - tHb > LIMITE_SENAL) { p.className = "punto"; velo(true, "PLC sin comunicación", "El tablero sigue en línea pero el PLC no responde."); }
-    else { p.className = "punto ok"; velo(false); }
+    else if (ahora - tHb > LIMITE_SENAL) { document.body.classList.remove("sinsenal"); p.className = "punto"; velo(true, "PLC sin comunicación", "El tablero sigue en línea pero el PLC no responde."); }
+    else { document.body.classList.remove("sinsenal"); p.className = "punto ok"; velo(false); }
   }, 1000);
   // ---------- ayuda: Samita (via el CC100, que se lo pasa a la Jetson) ----------
   var SUGERENCIAS = {
@@ -645,7 +652,7 @@ nav button .badge{position:absolute;top:2px;right:18%;background:var(--rojo);col
       burbuja("¡Hola! Soy Samita, la asistente de SAMA. Veo los mismos datos que tú en esta pantalla. ¿Qué te gustaría saber?", "sa");
   });
   // En la web Samita no va (todavia): no se expone la Jetson ni se gasta credito sin limite.
-  if (MQ) { $("fab").style.display = "none"; $("velo").classList.add("suave"); }
+  if (MQ) { $("fab").style.display = "none"; $("velo").classList.add("suave"); $("aviso").insertAdjacentElement("afterend", $("velo")); }
   $("chatCerrar").addEventListener("click", function () { $("chat").classList.remove("on"); });
   $("chatForm").addEventListener("submit", function (e) { e.preventDefault(); preguntar($("chatTxt").value); });
 
